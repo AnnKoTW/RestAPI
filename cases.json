@@ -1,0 +1,29 @@
+[
+	{
+		"test_case": "get_cats",
+		"req_method": "get",
+		"req_url": "/api/cats",
+		"schema":{"type":"array","items":{"type":"object","properties":{"_id":{"type":"string"},"mimetype":{"type":"string"},"size":{"type":"integer","minimum":0},"tags":{"type":"array","items":{"type":"string"}}},"required":["tags"]}},
+		"params": {"limit": null, "skip": null, "tags":null},
+		"json": {},
+		"test_items":[
+		{"scenario": "default", "target": {}, "code_status": 200, "keyword":"tags"},
+		{"scenario": "limit < 0", "target": {"limit":-1}, "code_status": 200, "keyword":"tags"},
+		{"scenario": "limit is String", "target": {"limit": "test"}, "code_status": 400, "keyword":"tags"},
+		{"scenario": "limit is not float", "target": {"limit": 1.1}, "code_status": 200, "keyword":"tags"},
+		{"scenario": "skip < 0", "target": {"skip": -1}, "code_status": 200, "keyword": ""},
+		{"scenario": "skip is String", "target": {"skip": "test"}, "code_status": 400, "keyword": ""}
+		]
+    },
+    {
+		"test_case": "get_count",
+		"req_method": "get",
+		"req_url": "/api/count",
+		"schema":{"type": "object","properties": {"count": {"type": "integer","minimum": 0}},"required": ["count"]},
+		"params": {},
+		"json": {},
+		"test_items":[
+		{"scenario": "default", "target": {}, "code_status": 200, "keyword":"count"}
+		]
+    }
+]
