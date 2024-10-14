@@ -1,6 +1,6 @@
-cases.json include all the API information.
-    {
-		"test_case": "get_count",
+cases.json include all the API information. /n
+    {/n
+		"test_case": "get_count",/n
 		"req_method": "get",
 		"req_url": "/api/count",
 		"schema":{"type": "object","properties": {"count": {"type": "integer","minimum": 0}},"required": ["count"]},
